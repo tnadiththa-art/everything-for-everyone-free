@@ -18,17 +18,21 @@ function initMobileNav() {
 
   if (!toggleBtn || !siteNav) return;
 
-  toggleBtn.addEventListener('click', () => {
-    const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-    toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
-    siteNav.classList.toggle('is-open');
+  function toggleMenu(open) {
+    const shouldOpen = typeof open === 'boolean' ? open : toggleBtn.getAttribute('aria-expanded') !== 'true';
+    toggleBtn.setAttribute('aria-expanded', String(shouldOpen));
+    siteNav.classList.toggle('is-open', shouldOpen);
+  }
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMenu();
   });
 
   // Close menu on pressing Escape
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && siteNav.classList.contains('is-open')) {
-      siteNav.classList.remove('is-open');
-      toggleBtn.setAttribute('aria-expanded', 'false');
+      toggleMenu(false);
       toggleBtn.focus();
     }
   });
@@ -40,8 +44,24 @@ function initMobileNav() {
       !siteNav.contains(e.target) &&
       !toggleBtn.contains(e.target)
     ) {
-      siteNav.classList.remove('is-open');
-      toggleBtn.setAttribute('aria-expanded', 'false');
+      toggleMenu(false);
+    }
+  });
+
+  // Close mobile nav after clicking any nav link
+  const navLinks = siteNav.querySelectorAll('a');
+  navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth < 768 && siteNav.classList.contains('is-open')) {
+        toggleMenu(false);
+      }
+    });
+  });
+
+  // Reset menu state if viewport is resized beyond mobile threshold
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768 && siteNav.classList.contains('is-open')) {
+      toggleMenu(false);
     }
   });
 }
@@ -57,15 +77,25 @@ function highlightActiveNav() {
     const href = link.getAttribute('href');
     if (!href) return;
 
-    // Normalize comparison
-    const isExactMatch =
-      currentPath.endsWith(href) ||
-      (currentPath.endsWith('/') && href.endsWith('index.html')) ||
-      (href === 'index.html' && (currentPath.endsWith('/') || currentPath.endsWith('/index.html')));
+    // Check if link matches current page (ignoring fragments)
+    const cleanHref = href.split('#')[0];
+    if (!cleanHref) return;
 
-    if (isExactMatch) {
+    const isMatch =
+      currentPath.endsWith(cleanHref) ||
+      (currentPath.endsWith('/') && cleanHref.endsWith('index.html')) ||
+      (cleanHref === 'index.html' && (currentPath.endsWith('/') || currentPath.endsWith('/index.html')));
+
+    if (isMatch) {
       link.classList.add('active');
       link.setAttribute('aria-current', 'page');
+
+      // If link is inside dropdown, also mark parent trigger active
+      const dropdownParent = link.closest('.nav-dropdown');
+      if (dropdownParent) {
+        const trigger = dropdownParent.querySelector('.nav-dropdown-trigger');
+        if (trigger) trigger.classList.add('active');
+      }
     }
   });
 }

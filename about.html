@@ -19,20 +19,22 @@
       </a>
 
       <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
-        ☰
+        <span class="hamburger-box" aria-hidden="true">
+          <span class="hamburger-inner"></span>
+        </span>
       </button>
 
       <nav id="primary-nav" class="site-nav" aria-label="Primary navigation">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li class="nav-dropdown">
-            <a href="index.html#pillars">Pillars ▾</a>
-            <div class="nav-dropdown-menu">
-              <a href="pillars/digital-ai.html">Digital &amp; AI</a>
-              <a href="pillars/skills-career.html">Skills &amp; Career</a>
-              <a href="pillars/life-finance.html">Life &amp; Finance</a>
-              <a href="pillars/health-habits.html">Health &amp; Habits</a>
-              <a href="pillars/free-tools.html">Free Tools</a>
+            <a href="index.html#pillars" class="nav-dropdown-trigger" aria-haspopup="true">Pillars <span class="dropdown-arrow" aria-hidden="true">▾</span></a>
+            <div class="nav-dropdown-menu" role="menu">
+              <a href="pillars/digital-ai.html" role="menuitem">Digital &amp; AI</a>
+              <a href="pillars/skills-career.html" role="menuitem">Skills &amp; Career</a>
+              <a href="pillars/life-finance.html" role="menuitem">Life &amp; Finance</a>
+              <a href="pillars/health-habits.html" role="menuitem">Health &amp; Habits</a>
+              <a href="pillars/free-tools.html" role="menuitem">Free Tools</a>
             </div>
           </li>
           <li><a href="about.html" class="active" aria-current="page">About</a></li>
@@ -139,12 +141,12 @@
     <div class="container footer-inner">
       <div class="footer-top">
         <div class="footer-brand">
-          <a href="index.html" class="brand-logo">
+          <a href="index.html" class="brand-logo" aria-label="Everything for Everyone Free Homepage">
             <span class="brand-icon">E</span>
             <span>Everything for Everyone <span class="brand-highlight">Free</span></span>
           </a>
-          <p>
-            Free, open-access tutorials and practical everyday life guides for everyone — zero paywalls, zero sign-ups.
+          <p class="footer-tagline">
+            100% Free, Open-Access Practical Guides for Everyone
           </p>
         </div>
 
@@ -156,23 +158,24 @@
               <li><a href="pillars/skills-career.html">Skills &amp; Career</a></li>
               <li><a href="pillars/life-finance.html">Life &amp; Finance</a></li>
               <li><a href="pillars/health-habits.html">Health &amp; Habits</a></li>
-              <li><a href="pillars/free-tools.html">Free Tools &amp; Software</a></li>
+              <li><a href="pillars/free-tools.html">Free Tools</a></li>
             </ul>
           </div>
 
           <div class="footer-col">
-            <h4>Project</h4>
+            <h4>Quick Links</h4>
             <ul>
-              <li><a href="about.html">About &amp; Manifesto</a></li>
-              <li><a href="index.html#pillars">Explore Framework</a></li>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="index.html#pillars">The 5 Pillars</a></li>
             </ul>
           </div>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>© <span class="current-year">2026</span> Everything for Everyone Free. Open Knowledge for Humanity.</p>
-        <p>Built with semantic HTML5 &amp; zero external frameworks.</p>
+        <p>© 2026 Everything for Everyone Free</p>
+        <p>Semantic HTML5 · Zero external frameworks</p>
       </div>
     </div>
   </footer>
