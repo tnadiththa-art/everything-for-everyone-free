@@ -1427,3 +1427,321 @@ a.card:hover,
     gap: var(--space-sm);
   }
 }
+
+/* --- 14. Tutorial & Article Styles --- */
+.article-wrapper {
+  width: 100%;
+  max-width: var(--max-reading-width);
+  margin-inline: auto;
+  padding-block: var(--space-2xl) var(--space-4xl);
+}
+
+.article-header {
+  margin-bottom: var(--space-2xl);
+}
+
+.article-title {
+  font-size: clamp(2rem, 4vw + 1rem, 2.75rem);
+  line-height: 1.22;
+  margin-bottom: var(--space-md);
+  color: var(--color-text-white);
+  letter-spacing: -0.025em;
+}
+
+.article-lead {
+  font-size: clamp(1.1rem, 1.8vw, 1.25rem);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: var(--space-lg);
+}
+
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  align-items: center;
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.article-meta .badge {
+  font-size: var(--font-size-xs);
+  padding: 0.35rem 0.75rem;
+}
+
+/* "What You'll Learn" Summary Box */
+.learn-box {
+  background: linear-gradient(135deg, rgba(19, 27, 38, 0.95) 0%, rgba(27, 40, 58, 0.85) 100%);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-emerald);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+  margin-block: var(--space-2xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.learn-box-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-emerald);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.learn-box-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding-left: 0;
+}
+
+.learn-box-list li {
+  position: relative;
+  padding-left: 1.75rem;
+  color: var(--color-text-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-body);
+}
+
+.learn-box-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--color-emerald);
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+/* Numbered Step-by-Step Sections */
+.step-section {
+  margin-block: var(--space-3xl);
+  scroll-margin-top: 5rem;
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.step-number {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--color-cyan), var(--color-emerald));
+  color: #0b1117;
+  font-weight: 800;
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px var(--color-primary-glow);
+}
+
+.step-title {
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  margin-bottom: 0;
+  color: var(--color-text-white);
+  line-height: 1.25;
+}
+
+.step-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* Tool Directory Cards within steps */
+.tool-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+.tool-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.tool-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.tool-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-xs);
+}
+
+.tool-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text-white);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.tool-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full);
+  background-color: rgba(52, 211, 153, 0.15);
+  color: var(--color-emerald);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+}
+
+.tool-use-case {
+  font-size: 0.95rem;
+  color: var(--color-text-body);
+  line-height: var(--line-height-body);
+  margin-bottom: var(--space-xs);
+}
+
+.tool-pro-tip {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  background-color: var(--color-surface-elevated);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-xs);
+  border-left: 3px solid var(--color-cyan);
+}
+
+/* Safety & Privacy Warning Box */
+.safety-box {
+  background-color: rgba(251, 191, 36, 0.08);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  border-left: 4px solid #fbbf24;
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+  margin-block: var(--space-2xl);
+}
+
+.safety-box-title {
+  color: #fbbf24;
+  font-size: 1.15rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-sm);
+}
+
+.safety-box ul {
+  padding-left: var(--space-lg);
+  color: var(--color-text-body);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.safety-box li strong {
+  color: #fbbf24;
+}
+
+/* Next / Previous Guide Navigation */
+.guide-nav {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+  margin-top: var(--space-3xl);
+  padding-top: var(--space-2xl);
+  border-top: 1px solid var(--color-border);
+}
+
+@media (min-width: 640px) {
+  .guide-nav {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.guide-nav-item {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.guide-nav-item:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  text-decoration: none;
+  box-shadow: var(--shadow-md);
+}
+
+.guide-nav-item.next {
+  text-align: right;
+  border-left-color: var(--color-border);
+}
+
+@media (min-width: 640px) {
+  .guide-nav-item.next {
+    border-left: 1px solid var(--color-border);
+  }
+}
+
+.guide-nav-label {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--color-text-dim);
+  margin-bottom: var(--space-xs);
+}
+
+.guide-nav-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text-white);
+  line-height: 1.35;
+}
+
+.guide-nav-item:hover .guide-nav-title {
+  color: var(--color-primary);
+}
+
+/* Mobile responsive adjustments for articles */
+@media (max-width: 767px) {
+  .article-wrapper {
+    padding-block: var(--space-lg) var(--space-2xl);
+  }
+
+  .step-header {
+    gap: var(--space-sm);
+  }
+
+  .step-number {
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 0.95rem;
+  }
+
+  .tool-card {
+    padding: var(--space-md);
+  }
+
+  .learn-box,
+  .safety-box {
+    padding: var(--space-lg);
+  }
+}

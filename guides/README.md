@@ -6,3 +6,8 @@ All guides published here adhere to the project charter:
 - Zero Paywalls
 - Zero Sign-ups or Required Accounts
 - Distraction-Free & Open Format
+
+## Published Guides
+
+- [Free AI Tools Every Student & Worker Can Use Today](free-ai-tools.html) — Practical, verified 100% free AI tools across writing, coding, visual design, and research.
+
